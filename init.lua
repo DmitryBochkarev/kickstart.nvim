@@ -43,7 +43,9 @@ P.S. You can delete this when you're done too. It's your config now :)
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.cmd.colorscheme 'default'
+-- vim.cmd.colorscheme 'default'
+
+vim.g.pascal_fpc = 1
 
 vim.keymap.set('i', '<C-J>', 'copilot#Accept("<CR>")', {
   expr = true,
@@ -95,7 +97,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -280,7 +282,7 @@ require('lazy').setup({
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-require 'kickstart.plugins.autoformat',
+  require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -441,7 +443,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
 vim.keymap.set('n', ',', function()
-  require'hop'.hint_char1()
+  require 'hop'.hint_char1()
 end, { desc = 'HopChar1' })
 
 -- [[ Configure Treesitter ]]
@@ -597,14 +599,14 @@ local servers = {
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
---   lua_ls = {
---     Lua = {
---       workspace = { checkThirdParty = false },
---       telemetry = { enable = false },
---       -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
---       -- diagnostics = { disable = { 'missing-fields' } },
---     },
---   },
+  --   lua_ls = {
+  --     Lua = {
+  --       workspace = { checkThirdParty = false },
+  --       telemetry = { enable = false },
+  --       -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+  --       -- diagnostics = { disable = { 'missing-fields' } },
+  --     },
+  --   },
 }
 
 -- Setup neovim lua configuration
