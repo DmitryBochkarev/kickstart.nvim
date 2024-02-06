@@ -47,10 +47,6 @@ vim.g.maplocalleader = ' '
 
 vim.g.pascal_fpc = 1
 
-vim.keymap.set('i', '<C-J>', 'copilot#Accept("<CR>")', {
-  expr = true,
-  replace_keycodes = false
-})
 vim.g.copilot_no_tab_map = true
 
 -- [[ Install `lazy.nvim` plugin manager ]]
@@ -577,6 +573,11 @@ local on_attach = function(_, bufnr)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 end
+
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
 
 -- document existing key chains
 -- require('which-key').register {
